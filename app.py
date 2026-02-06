@@ -28,16 +28,53 @@ def whatsapp_webhook():
     body = body.strip().lower()
     if body == "start":
        joined_user.add(from_number)
+       instruction_message = (
+        "Welcome to the Medical Alert System!\n"
+        "You have been successfully enrolled in the Medical Alert System.\n\n"
+        "Important Information:\n"
+        "• This system is intended to deliver critical patient health alerts only.\n"
+        "• Access to shared reports is restricted to authorized recipients only. Please do not forward report links.\n"
+        "• This system is intended to support clinical decision-making and does not replace professional medical judgment.\n"
+        "• In the event of a medical emergency, local emergency response protocols should be followed immediately.\n\n"
+        "Type *Help* for more information on how to use this service.\n\n"
+        "*By continuing to use this service, you acknowledge and accept these conditions.*"
+    )
+       client.messages.create(
+            from_="whatsapp:"+os.getenv("from_number_whatsapp"),
+            to=from_number,
+            body=instruction_message
+        )
     if body == "cancel":
         joined_user.discard(from_number)
-        message = client.messages.create(
-            from_= "whatsapp:"+ from_number,  
-            to = "whatsapp:"+os.getenv("from_number_whatsapp"),
-            body="stop"
-        )
+        cancel_message = (
+        "You have been successfully unsubscribed from the Medical Alert System.\n\n"
+        "You will no longer receive automated medical alerts through this WhatsApp service.\n\n"
+        "If this action was taken in error, you may re-enroll at any time by sending *START*.\n\n"
+        "For urgent medical situations, follow standard institutional emergency response procedures."
+    )
+
+    client.messages.create(
+        from_="whatsapp:" + os.getenv("from_number_whatsapp"),
+        to=from_number,
+        body=cancel_message
+    )
     if body == "help":
         # You can customize the help message as needed
-        help_message = "Welcome to the Medical Alert System! Send 'start' to receive alerts, 'cancel' to stop receiving alerts, 'stop' to leave the sandbox any time and 'help' for this message."
+        help_message = (
+        "Medical Alert System – Help Information\n\n"
+        "This system provides automated notifications for critical patient health events, "
+        "including secure access to diagnostic reports and emergency voice alerts.\n\n"
+        "System Commands:\n"
+        "• START – Enroll and receive medical alerts\n"
+        "• CANCEL – Unsubscribe from medical alerts\n"
+        "• HELP – Display this help information\n"
+        "• STOP – Exit the WhatsApp service\n\n"
+        "Additional Information:\n"
+        "• Alerts are generated automatically based on detected abnormal health activity.\n"
+        "• Shared medical reports are protected by secure, time-limited access links.\n"
+        "• This system is intended to support clinical workflows and does not replace professional medical judgment.\n\n"
+        "For medical emergencies, follow standard institutional emergency response procedures."
+    )
         client.messages.create(
             from_="whatsapp:"+os.getenv("from_number_whatsapp"),
             to=from_number,
