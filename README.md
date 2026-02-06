@@ -1,4 +1,5 @@
-# HeartAttackPrediction&AlertSystem
+# Heart Attack Prediction & Alert System
+
 
 A real-time medical alert system that detects abnormal heart activity and sends instant notifications via WhatsApp and automated voice calls to alert users and emergency contacts.
 
@@ -27,23 +28,23 @@ A real-time medical alert system that detects abnormal heart activity and sends 
 ## Installation
 
 1. **Clone or navigate to the project directory**
-   ```bash
-   cd alsys
-   ```
+    ```bash
+    cd alsys
+    ```
 
 2. **Create and activate virtual environment** (already created)
-   ```bash
-   # On Windows
-   .\Scripts\activate
-   
-   # On macOS/Linux
-   source bin/activate
-   ```
+    ```bash
+    # On Windows
+    .\Scripts\activate
+    
+    # On macOS/Linux
+    source bin/activate
+    ```
 
 3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Configuration
 
@@ -194,15 +195,14 @@ alsys/
 
 Contributions are welcome!
 
-
 ## Disclaimer
 
 This system is for alerting purposes only and should not replace professional medical diagnosis or emergency services. Always call emergency services (911) for medical emergencies.
 
 <div align="center">
 
-**Built with ❤️ **
+**Built with ❤️**
 
-[⬆ Back to Top](#HeartAttackPrediction&AlertSystem)
+[⬆ back to top](#heart-attack-prediction--alert-system)
 
 </div>
