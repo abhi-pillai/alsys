@@ -1,0 +1,38 @@
+﻿# Virtual Environment
+Include/
+Lib/
+Scripts/
+pyvenv.cfg
+
+# Python Cache & Compiled Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.dist-info/
+
+# Environment Variables
+details.env
+.env
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Dependencies
+pip-log.txt
+pip-delete-this-directory.txt
