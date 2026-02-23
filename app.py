@@ -149,11 +149,16 @@ def send_notification():
         to=os.getenv("to_number"),
         from_=os.getenv("from_number"),
     )
-
+    sms_message = client.messages.create(
+        from_=os.getenv("from_number"),
+        to=os.getenv("to_number"),
+        body=f"Medical Alert: Abnormal heart activity detected. Patient Name: {name}. Condition: {condition}. Severity: {severity}. Location: {location}. Please seek immediate medical assistance."
+    )
 
     return {
         "status": "sent",
-        "message_sid": message.sid
+        "message_sid": message.sid,
+        "sms_sid": sms_message.sid
     }
 
 
